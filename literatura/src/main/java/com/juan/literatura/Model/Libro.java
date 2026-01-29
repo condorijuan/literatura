@@ -19,6 +19,8 @@ public class Libro {
     private String resumen;
     private String idioma;
 
+    private int numeroDescargas;
+
     @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
     @JoinTable(
         name = "libro_autor",
@@ -27,10 +29,11 @@ public class Libro {
     )
     private Set<Autor> autores = new HashSet<>();
 
-    public Libro(String name, String resumen, String idioma) {
+    public Libro(String name, String resumen, String idioma, int numeroDescargas) {
         this.titulo = name;
         this.resumen = resumen;
         this.idioma = idioma;
+        this.numeroDescargas = numeroDescargas;
     }
 
     public Libro() {
@@ -75,5 +78,23 @@ public class Libro {
 
     public void setAutores(Set<Autor> autores) {
         this.autores = autores;
+    }
+
+    public int getNumeroDescargas() {
+        return numeroDescargas;
+    }
+
+    public void setNumeroDescargas(int numeroDescargas) {
+        this.numeroDescargas = numeroDescargas;
+    }
+
+    @Override
+    public String toString() {
+        String nl = System.lineSeparator();
+        return "titulo:'" + titulo + nl +
+                "resumen: " + resumen + nl +
+                "idioma: " + idioma + nl +
+                "numeroDescargas: " + numeroDescargas + nl +
+                "autores: " + nl + autores + nl;
     }
 }

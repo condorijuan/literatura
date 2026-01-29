@@ -9,6 +9,7 @@ public record DatosLibro (
         @JsonAlias("title") String titulo,
         @JsonAlias("summaries") String[] resumen,
         @JsonAlias("languages") String[] idioma,
+        @JsonAlias("download_count") int numeroDescargas,
         @JsonAlias("authors") DatosAutor[] autores
 ){
 }

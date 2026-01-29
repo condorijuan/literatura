@@ -14,4 +14,5 @@ public interface AutorRepository extends JpaRepository<Autor, Long> {
     @Query("SELECT a FROM Autor a WHERE a.fechaNacimiento IS NOT NULL AND a.fechaFallecimiento IS NOT NULL AND a.fechaNacimiento <= :anio AND a.fechaFallecimiento > :anio")
     ArrayList<Autor> findAutoresVivosEnAnio(int anio);
 
+    //No uso findByFechaNacimientoLessThanEqualAndFechaFallecimientoGreaterThan devido a que no se verifica sin son null, nombre demasiado largo
 }

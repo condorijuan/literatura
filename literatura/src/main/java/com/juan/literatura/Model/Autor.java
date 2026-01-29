@@ -77,4 +77,12 @@ public class Autor {
     public void setLibros(Set<Libro> libros) {
         this.libros = libros;
     }
+
+    @Override
+    public String toString() {
+        String nl = System.lineSeparator();
+        return  nl +"nombre: " + nombre + nl
+                + "fechaNacimiento: " + fechaNacimiento + nl
+                + "fechaFallecimiento: " + fechaFallecimiento + nl;
+    }
 }
